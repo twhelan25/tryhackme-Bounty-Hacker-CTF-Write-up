@@ -64,3 +64,9 @@ sudo -l reveals something nice:
 
 
 Let's head to gtfobins.github.io and see what we can find about sudo tar.
+
+![gtfo](https://github.com/user-attachments/assets/d96172d1-4f58-4371-b9f2-d011f40ffa6e)
+
+![exploit](https://github.com/user-attachments/assets/7bfab2e4-4b74-47c0-802c-ce2c918fe568)
+
+The exploit worked and we can now get root.txt! I hope you enjoyed this CTF.
