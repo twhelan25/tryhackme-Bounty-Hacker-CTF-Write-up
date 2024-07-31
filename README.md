@@ -50,3 +50,17 @@ I was able to finally get the task.txt and locks.txt.
 ![ftp](https://github.com/user-attachments/assets/bd5b2702-3903-4c06-aa92-75b37bd721b5)
 
 We have a message from lin(answer to one of the questions) and a password list.
+# Privilege Escalation
+Now let's use what we've gathered so far and take a stab at brute forcing port 22 ssh:
+```bash
+hydra -l lin -P locks.txt $ip ssh
+```
+And we are now logged onto the target as lin!
+We can now cat user.txt
+# Privilege Escalation/Exploitation
+sudo -l reveals something nice:
+
+![sudo -l](https://github.com/user-attachments/assets/f7d6fc5c-12c2-42b1-a053-308c1e4ac04d)
+
+
+Let's head to gtfobins.github.io and see what we can find about sudo tar.
