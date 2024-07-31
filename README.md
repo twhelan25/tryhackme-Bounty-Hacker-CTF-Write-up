@@ -28,3 +28,25 @@ Command break down:
 -oN nmap.txt: This option specifies normal output that should be saved to a file named “nmap.txt.
 
 This scan reveals a few open ports that will prove very usep.
+
+Let's check on the webserver on port 80: 
+
+![80](https://github.com/user-attachments/assets/376107c9-bda0-4172-ae2d-e401ec4557c7)
+
+Our nmap scan revealed an ftp server with anonymous login allowed, so let's check that out:
+```bash
+ftp $ip
+```
+The ftp server seems very unstable, and keeps going to passive mode. After a few attemps, I was able to ls and see locks.txt and task.txt, but it keeps stalling when I try to get them. I'll keep trying and run gobuster and nikto scans in the mean time.
+```bash
+gobuster dir -u $ip -w=/usr/share/wordlists/dirb/common.txt -o bust.txt
+```
+```bash
+nikto -h $ip | tee nikto.txt
+```
+The scan reveals an /images directory that contains the main site image. 
+I was able to finally get the task.txt and locks.txt.
+
+![ftp](https://github.com/user-attachments/assets/bd5b2702-3903-4c06-aa92-75b37bd721b5)
+
+We have a message from lin(answer to one of the questions) and a password list.
